@@ -156,7 +156,6 @@ func main() {
 	monitor := w32.MonitorFromWindow(w, w32.MONITOR_DEFAULTTONULL)
 	w32.ShowWindow(window, w32.SW_RESTORE)
 
-	//monitor := w32.MonitorFromWindow(window, w32.MONITOR_DEFAULTTONULL)
 	if monitor == 0 {
 		panic("no monitor under window detected")
 	}
