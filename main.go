@@ -76,6 +76,12 @@ func main() {
 					y := int(selection.Top) / tileH * tileH
 					right := int(selection.Right)/tileW*tileW + tileW
 					bottom := int(selection.Bottom)/tileH*tileH + tileH
+					if int(selection.Right)/tileW == tiles-1 {
+						right += int(info.RcWork.Width()) % tileW
+					}
+					if int(selection.Bottom)/tileH == tiles-1 {
+						bottom += int(info.RcWork.Height()) % tileH
+					}
 					w32.SetWindowPos(
 						w, 0,
 						int(info.RcWork.Left)+x, int(info.RcWork.Top)+y,
