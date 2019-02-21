@@ -181,7 +181,7 @@ func main() {
 		w32.SWP_ASYNCWINDOWPOS|w32.SWP_NOACTIVATE|w32.SWP_NOOWNERZORDER|w32.SWP_NOZORDER|w32.SWP_SHOWWINDOW,
 	)
 
-	win.RunMainLoop(window)
+	win.RunMainLoop()
 }
 
 type MessageCallback func(window w32.HWND, msg uint32, w, l uintptr) uintptr
