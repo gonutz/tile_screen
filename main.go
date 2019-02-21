@@ -75,7 +75,13 @@ func main() {
 					x := int(selection.Left) / tileW * tileW
 					y := int(selection.Top) / tileH * tileH
 					right := int(selection.Right)/tileW*tileW + tileW
+					if right > int(info.RcWork.Width()) {
+						right = int(info.RcWork.Width())
+					}
 					bottom := int(selection.Bottom)/tileH*tileH + tileH
+					if bottom > int(info.RcWork.Height()) {
+						bottom = int(info.RcWork.Height())
+					}
 					if int(selection.Right)/tileW == tiles-1 {
 						right += int(info.RcWork.Width()) % tileW
 					}
@@ -175,7 +181,7 @@ func main() {
 		w32.SWP_ASYNCWINDOWPOS|w32.SWP_NOACTIVATE|w32.SWP_NOOWNERZORDER|w32.SWP_NOZORDER|w32.SWP_SHOWWINDOW,
 	)
 
-	win.RunMainLoop()
+	win.RunMainLoop(window)
 }
 
 type MessageCallback func(window w32.HWND, msg uint32, w, l uintptr) uintptr
